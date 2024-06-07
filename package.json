@@ -1,0 +1,11 @@
+{
+  "name": "brief-monster-slayer",
+  "version": "1.0.0",
+  "description": " create a web page containing a small fighting game with a monster",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fethi",
+  "license": "ISC"
+}
