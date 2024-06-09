@@ -6,8 +6,4 @@
 - btnHeal = fonction (augmente le nombre qui est à l'intérieur de healthplayer s'il est inférieur à 100)
 - btnGiveUp = fonction (envoie une alerte nous indiquant que nous avons abandonné la partie)
 */
-
 console.log("hello, world!");
-
-
-
