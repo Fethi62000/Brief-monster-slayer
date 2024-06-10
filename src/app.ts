@@ -17,8 +17,8 @@ this: appeler des objet dans des fonctions
 class Game {
     private playerHealth: number = 100;
     private monsterHealth: number = 100;
-}
 
+}
 
 const btnAttack = document.querySelector(".attack") as HTMLButtonElement;
 const btnSpecialAttack = document.querySelector(".SpecialAttack") as HTMLButtonElement
@@ -35,7 +35,6 @@ btnGiveUp.addEventListener('click', () => this.GiveUp)
 
 const playerHealthBar = document.getElementById('playerHealthBar')
 const monsterHealthBar = document.getElementById('monsterHealthBar')
-
 
 
 
