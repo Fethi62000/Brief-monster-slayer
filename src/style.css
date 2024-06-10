@@ -20,12 +20,5 @@
 }
 
 button {
-    margin: 10px;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10%;
+    background-color: aqua;
 }
