@@ -13,24 +13,20 @@ Math.floor/ Math.random: calculer un nombre aléatoire
 this: appeler des objet dans des fonctions
 */
 
-
 class Game {
-
 
     private playerHealth: number = 100;
     private monsterHealth: number = 100;
-
     constructor() {
         this.initializeGame();
     }
 
     private initializeGame() {
 
-        const btnAttack = document.querySelector('#attackbtn') as HTMLButtonElement;
-        const btnSpecialAttack = document.querySelector('#specialAttackbtn') as HTMLButtonElement;
-        const btnheal = document.querySelector('#healbtn') as HTMLButtonElement;
-        const btnGiveUp = document.querySelector('#giveUpbtn') as HTMLButtonElement;
-
+        const btnAttack = document.getElementById('attackbtn') as HTMLButtonElement;
+        const btnSpecialAttack = document.getElementById('specialAttackbtn') as HTMLButtonElement;
+        const btnheal = document.getElementById('healbtn') as HTMLButtonElement;
+        const btnGiveUp = document.getElementById('giveUpbtn') as HTMLButtonElement;
 
         btnAttack.addEventListener('click', () => this.attack());
         btnSpecialAttack.addEventListener('click', () => this.SpecialAttack());

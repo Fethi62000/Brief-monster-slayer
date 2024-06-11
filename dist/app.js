@@ -19,10 +19,10 @@ class Game {
         this.initializeGame();
     }
     initializeGame() {
-        const btnAttack = document.querySelector('#attackbtn');
-        const btnSpecialAttack = document.querySelector('#specialAttackbtn');
-        const btnheal = document.querySelector('#healbtn');
-        const btnGiveUp = document.querySelector('#giveUpbtn');
+        const btnAttack = document.getElementById('attackbtn');
+        const btnSpecialAttack = document.getElementById('specialAttackbtn');
+        const btnheal = document.getElementById('healbtn');
+        const btnGiveUp = document.getElementById('giveUpbtn');
         btnAttack.addEventListener('click', () => this.attack());
         btnSpecialAttack.addEventListener('click', () => this.SpecialAttack());
         btnheal.addEventListener('click', () => this.heal());
