@@ -14,6 +14,7 @@ this: appeler des objet dans des fonctions
 */
 
 
+
 class Game {
     private playerHealth: number = 100;
     private monsterHealth: number = 100;
