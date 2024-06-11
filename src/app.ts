@@ -25,16 +25,16 @@ class Game {
 
     private initializeGame() {
 
-        const btnAttack = document.querySelector('attack') as HTMLButtonElement;
-        const btnSpecialAttack = document.querySelector('SpecialAttack') as HTMLButtonElement;
-        const btnheal = document.querySelector('heal') as HTMLButtonElement;
-        const btnGiveUp = document.querySelector('GiveUp') as HTMLButtonElement;
+        const btnAttack = document.querySelector('#attack') as HTMLButtonElement;
+        const btnSpecialAttack = document.querySelector('#SpecialAttack') as HTMLButtonElement;
+        const btnheal = document.querySelector('#heal') as HTMLButtonElement;
+        const btnGiveUp = document.querySelector('#GiveUp') as HTMLButtonElement;
 
 
-        btnAttack.addEventListener('click', () => this.attack);
-        btnSpecialAttack.addEventListener('click', () => this.SpecialAttack);
-        btnheal.addEventListener('click', () => this.heal);
-        btnGiveUp.addEventListener('click', () => this.GiveUp);
+        btnAttack.addEventListener('click', () => this.attack());
+        btnSpecialAttack.addEventListener('click', () => this.SpecialAttack());
+        btnheal.addEventListener('click', () => this.heal());
+        btnGiveUp.addEventListener('click', () => this.GiveUp());
     }
 
     private attack() {
@@ -73,18 +73,18 @@ class Game {
         const monsterDamage = Math.floor(Math.random() * 10) + 1;
         this.playerHealth -= monsterDamage;
         this.updateHealthBars();
-        this.checkGamerOver();
+        this.checkGameOver();
     }
 
     private updateHealthBars() {
         const playerHealthBar = document.getElementById('playerHealthBar') as HTMLDivElement;
         const monsterHealthBar = document.getElementById('monsterHealthBar') as HTMLDivElement;
-
+        const logsElement = document.getElementById('logs') as HTMLDivElement;
         playerHealthBar.style.width = `${this.playerHealth}%`;
         monsterHealthBar.style.width = `${this.monsterHealth}%`;
     }
 
-    private checkGamerOver() {
+    private checkGameOver() {
         if (this.playerHealth <= 0) {
             alert('Vous avez perdu le combat!');
             this.resetGame();

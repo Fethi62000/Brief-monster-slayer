@@ -19,14 +19,14 @@ class Game {
         this.initializeGame();
     }
     initializeGame() {
-        const btnAttack = document.querySelector('attack');
-        const btnSpecialAttack = document.querySelector('SpecialAttack');
-        const btnheal = document.querySelector('heal');
-        const btnGiveUp = document.querySelector('GiveUp');
-        btnAttack.addEventListener('click', () => this.attack);
-        btnSpecialAttack.addEventListener('click', () => this.SpecialAttack);
-        btnheal.addEventListener('click', () => this.heal);
-        btnGiveUp.addEventListener('click', () => this.GiveUp);
+        const btnAttack = document.querySelector('#attack');
+        const btnSpecialAttack = document.querySelector('#SpecialAttack');
+        const btnheal = document.querySelector('#heal');
+        const btnGiveUp = document.querySelector('#GiveUp');
+        btnAttack.addEventListener('click', () => this.attack());
+        btnSpecialAttack.addEventListener('click', () => this.SpecialAttack());
+        btnheal.addEventListener('click', () => this.heal());
+        btnGiveUp.addEventListener('click', () => this.GiveUp());
     }
     attack() {
         const playerDamage = Math.floor(Math.random() * 10 + 1);
@@ -57,15 +57,16 @@ class Game {
         const monsterDamage = Math.floor(Math.random() * 10) + 1;
         this.playerHealth -= monsterDamage;
         this.updateHealthBars();
-        this.checkGamerOver();
+        this.checkGameOver();
     }
     updateHealthBars() {
         const playerHealthBar = document.getElementById('playerHealthBar');
         const monsterHealthBar = document.getElementById('monsterHealthBar');
+        const logsElement = document.getElementById('logs');
         playerHealthBar.style.width = `${this.playerHealth}%`;
         monsterHealthBar.style.width = `${this.monsterHealth}%`;
     }
-    checkGamerOver() {
+    checkGameOver() {
         if (this.playerHealth <= 0) {
             alert('Vous avez perdu le combat!');
             this.resetGame();
