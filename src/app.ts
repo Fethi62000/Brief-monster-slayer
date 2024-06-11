@@ -8,7 +8,7 @@
 
 - Les outils:
 
-if, else if, else,: mettre des condition
+if, else if, else,: mettre des conditions
 Math.floor/ Math.random: calculer un nombre aléatoire
 this: appeler des objet dans des fonctions
 */
@@ -19,26 +19,21 @@ class Game {
     private monsterHealth: number = 100;
 
     constructor() {
-        this.initialiseGame();
+        this.initializeGame();
     }
 
-    private initialiseGame() {
+    private initializeGame() {
 
-        const btnAttack = document.querySelector(".attack") as HTMLButtonElement;
-        const btnSpecialAttack = document.querySelector(".SpecialAttack") as HTMLButtonElement
-        const btnheal = document.querySelector(".heal") as HTMLButtonElement
-        const btnGiveUp = document.querySelector(".GiveUp") as HTMLButtonElement
-
-
-        btnAttack.addEventListener('click', () => this.attack)
-        btnSpecialAttack.addEventListener('click', () => this.SpecialAttack)
-        btnheal.addEventListener('click', () => this.heal)
+        const btnAttack = document.querySelector('attack') as HTMLButtonElement;
+        const btnSpecialAttack = document.querySelector('SpecialAttack') as HTMLButtonElement;
+        const btnheal = document.querySelector('heal') as HTMLButtonElement;
+        const btnGiveUp = document.querySelector('GiveUp') as HTMLButtonElement;
 
 
-        const playerHealthBar = document.getElementById('playerHealthBar')
-        const monsterHealthBar = document.getElementById('monsterHealthBar')
-
-
+        btnAttack.addEventListener('click', () => this.attack);
+        btnSpecialAttack.addEventListener('click', () => this.SpecialAttack);
+        btnheal.addEventListener('click', () => this.heal);
+        btnGiveUp.addEventListener('click', () => this.GiveUp);
     }
 
     private attack() {
@@ -47,8 +42,6 @@ class Game {
         this.updateHealthBars();
         this.monsterAttack();
     }
-
-
 
     private SpecialAttack() {
         const playerDamage = Math.floor(Math.random() * 20) + 10;
@@ -69,6 +62,7 @@ class Game {
     }
 
 
+
     private GiveUp() {
         alert('Vous avez abandoné le combat.')
         this.resetGame();
@@ -85,14 +79,13 @@ class Game {
         const playerHealthBar = document.getElementById('playerHealthBar') as HTMLDivElement;
         const monsterHealthBar = document.getElementById('monsterHealthBar') as HTMLDivElement;
 
-
         playerHealthBar.style.width = `${this.playerHealth}%`;
         monsterHealthBar.style.width = `${this.monsterHealth}%`;
     }
 
     private checkGamerOver() {
         if (this.playerHealth <= 0) {
-            alert('Vous avez perdu le combat.');
+            alert('Vous avez perdu le combat!');
             this.resetGame();
         } else if (this.monsterHealth <= 0) {
             alert('Vous avez gagné le combat!');
