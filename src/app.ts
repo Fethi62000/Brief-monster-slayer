@@ -35,39 +35,41 @@ class Game {
         btnheal.addEventListener('click', () => this.heal)
 
 
-
         const playerHealthBar = document.getElementById('playerHealthBar')
         const monsterHealthBar = document.getElementById('monsterHealthBar')
 
 
     }
 
-
     private attack() {
         const playerDamage = Math.floor(Math.random() * 10 + 1);
         this.monsterHealth -= playerDamage;
+        this.updateHealthBars();
         this.monsterAttack();
     }
+
 
 
     private SpecialAttack() {
         const playerDamage = Math.floor(Math.random() * 20) + 10;
         this.monsterHealth -= playerDamage;
+        this.updateHealthBars();
         this.monsterAttack();
     }
 
 
     private heal() {
-        const healAMount = Math.floor(Math.random() * 20) + 10;
-        this.playerHealth += healAMount;
+        const healAmount = Math.floor(Math.random() * 20) + 10;
+        this.playerHealth += healAmount;
         if (this.playerHealth > 100) {
             this.playerHealth = 100;
         }
+        this.updateHealthBars();
         this.monsterAttack();
     }
 
 
-    private giveUp() {
+    private GiveUp() {
         alert('Vous avez abandoné le combat.')
         this.resetGame();
     }
@@ -75,29 +77,35 @@ class Game {
     private monsterAttack() {
         const monsterDamage = Math.floor(Math.random() * 10) + 1;
         this.playerHealth -= monsterDamage;
+        this.updateHealthBars();
         this.checkGamerOver();
     }
 
+    private updateHealthBars() {
+        const playerHealthBar = document.getElementById('playerHealthBar') as HTMLDivElement;
+        const monsterHealthBar = document.getElementById('monsterHealthBar') as HTMLDivElement;
+
+
+        playerHealthBar.style.width = `${this.playerHealth}%`;
+        monsterHealthBar.style.width = `${this.monsterHealth}%`;
+    }
 
     private checkGamerOver() {
         if (this.playerHealth <= 0) {
-            alert('Vous avez perdu le combat')
+            alert('Vous avez perdu le combat.');
+            this.resetGame();
         } else if (this.monsterHealth <= 0) {
-            alert('Vous avez gagné le combat')
+            alert('Vous avez gagné le combat!');
+            this.resetGame();
         }
     }
 
     private resetGame() {
         this.playerHealth = 100;
         this.monsterHealth = 100;
+        this.updateHealthBars();
     }
 
 }
 
-
-
-
-
-
-
-
+new Game();
