@@ -19,29 +19,29 @@ class Game {
         this.initializeGame();
     }
     initializeGame() {
-        const btnAttack = document.querySelector('#attack');
-        const btnSpecialAttack = document.querySelector('#SpecialAttack');
-        const btnheal = document.querySelector('#heal');
-        const btnGiveUp = document.querySelector('#GiveUp');
+        const btnAttack = document.querySelector('#attackbtn');
+        const btnSpecialAttack = document.querySelector('#specialAttackbtn');
+        const btnheal = document.querySelector('#healbtn');
+        const btnGiveUp = document.querySelector('#giveUpbtn');
         btnAttack.addEventListener('click', () => this.attack());
         btnSpecialAttack.addEventListener('click', () => this.SpecialAttack());
         btnheal.addEventListener('click', () => this.heal());
         btnGiveUp.addEventListener('click', () => this.GiveUp());
     }
     attack() {
-        const playerDamage = Math.floor(Math.random() * 10 + 1);
+        let playerDamage = Math.floor(Math.random() * 10 + 1);
         this.monsterHealth -= playerDamage;
         this.updateHealthBars();
         this.monsterAttack();
     }
     SpecialAttack() {
-        const playerDamage = Math.floor(Math.random() * 20) + 10;
+        let playerDamage = Math.floor(Math.random() * 20) + 10;
         this.monsterHealth -= playerDamage;
         this.updateHealthBars();
         this.monsterAttack();
     }
     heal() {
-        const healAmount = Math.floor(Math.random() * 20) + 10;
+        let healAmount = Math.floor(Math.random() * 20) + 10;
         this.playerHealth += healAmount;
         if (this.playerHealth > 100) {
             this.playerHealth = 100;
@@ -54,7 +54,7 @@ class Game {
         this.resetGame();
     }
     monsterAttack() {
-        const monsterDamage = Math.floor(Math.random() * 10) + 1;
+        let monsterDamage = Math.floor(Math.random() * 10) + 1;
         this.playerHealth -= monsterDamage;
         this.updateHealthBars();
         this.checkGameOver();

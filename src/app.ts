@@ -14,8 +14,9 @@ this: appeler des objet dans des fonctions
 */
 
 
-
 class Game {
+
+
     private playerHealth: number = 100;
     private monsterHealth: number = 100;
 
@@ -25,10 +26,10 @@ class Game {
 
     private initializeGame() {
 
-        const btnAttack = document.querySelector('#attack') as HTMLButtonElement;
-        const btnSpecialAttack = document.querySelector('#SpecialAttack') as HTMLButtonElement;
-        const btnheal = document.querySelector('#heal') as HTMLButtonElement;
-        const btnGiveUp = document.querySelector('#GiveUp') as HTMLButtonElement;
+        const btnAttack = document.querySelector('#attackbtn') as HTMLButtonElement;
+        const btnSpecialAttack = document.querySelector('#specialAttackbtn') as HTMLButtonElement;
+        const btnheal = document.querySelector('#healbtn') as HTMLButtonElement;
+        const btnGiveUp = document.querySelector('#giveUpbtn') as HTMLButtonElement;
 
 
         btnAttack.addEventListener('click', () => this.attack());
@@ -38,22 +39,21 @@ class Game {
     }
 
     private attack() {
-        const playerDamage = Math.floor(Math.random() * 10 + 1);
+        let playerDamage = Math.floor(Math.random() * 10 + 1);
         this.monsterHealth -= playerDamage;
         this.updateHealthBars();
         this.monsterAttack();
     }
 
     private SpecialAttack() {
-        const playerDamage = Math.floor(Math.random() * 20) + 10;
+        let playerDamage = Math.floor(Math.random() * 20) + 10;
         this.monsterHealth -= playerDamage;
         this.updateHealthBars();
         this.monsterAttack();
     }
 
-
     private heal() {
-        const healAmount = Math.floor(Math.random() * 20) + 10;
+        let healAmount = Math.floor(Math.random() * 20) + 10;
         this.playerHealth += healAmount;
         if (this.playerHealth > 100) {
             this.playerHealth = 100;
@@ -62,15 +62,13 @@ class Game {
         this.monsterAttack();
     }
 
-
-
     private GiveUp() {
         alert('Vous avez abandoné le combat.')
         this.resetGame();
     }
 
     private monsterAttack() {
-        const monsterDamage = Math.floor(Math.random() * 10) + 1;
+        let monsterDamage = Math.floor(Math.random() * 10) + 1;
         this.playerHealth -= monsterDamage;
         this.updateHealthBars();
         this.checkGameOver();
