@@ -75,7 +75,6 @@ class Game {
     private monsterAttack() {
         const monsterDamage = Math.floor(Math.random() * 10) + 1;
         this.playerHealth -= monsterDamage;
-
         this.checkGamerOver();
     }
 
