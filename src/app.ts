@@ -13,6 +13,7 @@ Math.floor/ Math.random: calculer un nombre aléatoire
 this: appeler des objet dans des fonctions
 */
 
+
 class Game {
 
     private playerHealth: number = 100;
@@ -73,7 +74,6 @@ class Game {
     private updateHealthBars() {
         const playerHealthBar = document.getElementById('playerHealthBar') as HTMLDivElement;
         const monsterHealthBar = document.getElementById('monsterHealthBar') as HTMLDivElement;
-        const logsElement = document.getElementById('logs') as HTMLDivElement;
         playerHealthBar.style.width = `${this.playerHealth}%`;
         monsterHealthBar.style.width = `${this.monsterHealth}%`;
     }
