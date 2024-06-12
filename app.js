@@ -50,7 +50,7 @@ class Game {
         this.monsterAttack();
     }
     GiveUp() {
-        alert('Vous avez abandoné le combat.');
+        alert('You have given up the fight.');
         this.resetGame();
     }
     monsterAttack() {
@@ -68,11 +68,11 @@ class Game {
     }
     checkGameOver() {
         if (this.playerHealth <= 0) {
-            alert('Vous avez perdu le combat!');
+            alert('You have lost the fight!');
             this.resetGame();
         }
         else if (this.monsterHealth <= 0) {
-            alert('Vous avez gagné le combat!');
+            alert('You have won the fight!');
             this.resetGame();
         }
     }
