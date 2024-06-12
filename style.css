@@ -1,4 +1,5 @@
 .game-container {
+
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
@@ -20,5 +21,9 @@
 }
 
 button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
     background-color: aqua;
 }
